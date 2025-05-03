@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Simple RAG API with OpenAI and FAISS"
 readme = "README.md"
 authors = [
-    { name = "mohammad.alnajdawi", email = "mohammad.alnajdawi@teamviewer.com" }
+    { name = "Amer.alnajdawi", email = "amernajdawi8@gmail.com" }
 ]
 requires-python = ">=3.11"
 dependencies = [
