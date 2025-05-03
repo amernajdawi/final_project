@@ -1,0 +1,38 @@
+name: expansion-rag-app
+services:
+  app:
+    build:
+      context: ./expansion_rag 
+      dockerfile: Dockerfile   
+    image: expansion-rag-app:latest 
+    ports:
+      - "8000:8000" 
+    env_file:
+      - ./expansion_rag/.env 
+    container_name: expansion-rag-container 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ./expansion_rag/src/api/data:/app/data
+    environment:
+      - DOCUMENTS_DIR=/app/data/documents
+      - EMBEDDINGS_DIR=/app/data/embeddings
+  
+  frontend:
+    build:
+      context: ./expansion_rag_frontend
+      dockerfile: dockerfile
+    image: expansion-rag-frontend:latest
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    container_name: expansion-rag-frontend-container
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 
