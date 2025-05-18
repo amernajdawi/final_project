@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RAG Chatbot',
+  title: 'aika',
   description: 'A ChatGPT-style interface for RAG-based question answering',
 };
 

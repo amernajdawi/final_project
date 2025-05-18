@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { MessageSquare, Plus, X } from 'lucide-react';
 import { Conversation } from '../hooks/useConversations';
 import { formatDate } from '../utils/formatters';
@@ -27,7 +28,7 @@ export default function ConversationList({
           className="w-full flex items-center justify-center gap-2 p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200"
         >
           <Plus className="w-5 h-5" />
-          New Chat
+          <span>New Chat</span>
         </button>
       </div>
 
